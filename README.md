@@ -4,8 +4,7 @@ Project ideas:
 Meme machine  
 Browser  
 IDE  
-Solitaire  
-A program that bakes rhubarb crumble  
+Solitaire
 2D Physics engine  
 Machine learning, AI, Dues Ex Machina, etc.  
 Internet archiving program  
