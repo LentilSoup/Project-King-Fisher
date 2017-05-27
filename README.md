@@ -1,6 +1,6 @@
 # Project-King-Fisher
 
-## Project ideas:  
+### Project ideas:  
 * Meme machine
 * Browser  
 * IDE  
@@ -14,6 +14,6 @@
 * Image to text  
 * NoCaptcha ReCaptcha bot  
   
-## Current Project:  
+### Current Project:  
 * P2P Collaborative file editing
   * Encryption

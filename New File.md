@@ -6,4 +6,4 @@ Server sockets on port 845
   
 Eg.  
 Peer1:844 --> Peer2:845  
-Peer2:845 --> Peer1:844  
+Peer2:844 --> Peer1:845  
