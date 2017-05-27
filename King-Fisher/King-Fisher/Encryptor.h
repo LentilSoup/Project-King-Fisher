@@ -1,17 +1,27 @@
 #pragma once
 
-#ifndef _KGFR_ENCRIYPTION_
-#define _KGFR_ENCRIYPTION_
+#ifndef _KGFR_ENCRYPTION_
+#define _KGFR_ENCRYPTION_
 
-class AESEncription {
+class AESEncryption {
 public:
-	void encript();
+	void encrypt() {
+	
+	
+	
+	
+	
+	
+	};
+
+	void decrypt() {
 
 
 
 
 
 
+	};
 };
 
 
