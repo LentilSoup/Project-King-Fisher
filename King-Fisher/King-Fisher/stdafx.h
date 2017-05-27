@@ -10,11 +10,12 @@
 #include "targetver.h"
 #endif
 
-
+#include <fstream>
 #include <stdio.h>
 #include <tchar.h>
 #include <iostream>
-
+#include <string>
+#include <cstdio>
 // TODO: reference additional standard library headers your program requires here
 
 
