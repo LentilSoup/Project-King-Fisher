@@ -138,6 +138,7 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Encryptor.h" />
     <ClInclude Include="King-Fisher.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
