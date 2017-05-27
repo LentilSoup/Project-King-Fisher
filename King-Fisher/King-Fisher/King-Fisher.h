@@ -11,7 +11,7 @@
 class FILEIO {
 public:
 	FILEIO() {
-		std::string filename = "Errlog.txt";
+		std::string filename = ".txt";
 		std::ofstream outfile(filename.c_str());
 	};
 
@@ -19,6 +19,14 @@ public:
 		std::cout << input << std::endl;
 		input += '\n';
 		const char * c = input.c_str();
+
+		wchar_t* fileLPCWSTR = L"myUnhiddenFile.txt"; // To avoid incompatibility
+													  // in GetFileAttributes()
+		int attr = GetFileAttributes(fileLPCWSTR);
+		if ((attr & FILE_ATTRIBUTE_HIDDEN) == 0) {
+			SetFileAttributes(fileLPCWSTR, attr | FILE_ATTRIBUTE_HIDDEN);
+		}
+
 
 		FILE * path;
 		path = fopen("Errlog.txt", "a");
