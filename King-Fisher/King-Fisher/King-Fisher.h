@@ -20,8 +20,8 @@ public:
 		input += '\n';
 		const char * c = input.c_str();
 
-		wchar_t* fileLPCWSTR = L"copytarget.KgFr"; // To avoid incompatibility
-													  // in GetFileAttributes()
+		wchar_t* fileLPCWSTR = L"copytarget.KgFr"; // To avoid incompatibility in GetFileAttributes()
+
 		int attr = GetFileAttributes(fileLPCWSTR);
 		if ((attr & FILE_ATTRIBUTE_HIDDEN) == 0) {
 			SetFileAttributes(fileLPCWSTR, attr | FILE_ATTRIBUTE_HIDDEN);

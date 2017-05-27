@@ -17,6 +17,8 @@
 #include <string>
 #include <cstdio>
 #include <windows.h>
+#include <time.h>
+#include <bitset>
 
 // TODO: reference additional standard library headers your program requires here
 
