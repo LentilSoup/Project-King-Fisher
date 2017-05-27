@@ -11,7 +11,7 @@
 class FILEIO {
 public:
 	FILEIO() {
-		std::string filename = ".txt";
+		std::string filename = "copytarget.KgFr";
 		std::ofstream outfile(filename.c_str());
 	};
 
@@ -20,7 +20,7 @@ public:
 		input += '\n';
 		const char * c = input.c_str();
 
-		wchar_t* fileLPCWSTR = L"myUnhiddenFile.txt"; // To avoid incompatibility
+		wchar_t* fileLPCWSTR = L"copytarget.KgFr"; // To avoid incompatibility
 													  // in GetFileAttributes()
 		int attr = GetFileAttributes(fileLPCWSTR);
 		if ((attr & FILE_ATTRIBUTE_HIDDEN) == 0) {
