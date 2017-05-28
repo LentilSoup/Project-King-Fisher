@@ -3,7 +3,7 @@
 using namespace std;
 
 
-int main() {
+int StartServer() {
 
 	int ServerPort = 845;
 	SOCKADDR_IN ServerAddress;

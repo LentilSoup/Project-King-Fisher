@@ -13,12 +13,6 @@ public:
 	FILEIO() {
 		std::string filename = "copytarget.KgFr";
 		std::ofstream outfile(filename.c_str());
-	};
-
-	static void Fenter(std::string input) {
-		std::cout << input << std::endl;
-		input += '\n';
-		const char * c = input.c_str();
 
 		wchar_t* fileLPCWSTR = L"copytarget.KgFr"; // To avoid incompatibility in GetFileAttributes()
 
@@ -26,14 +20,28 @@ public:
 		if ((attr & FILE_ATTRIBUTE_HIDDEN) == 0) {
 			SetFileAttributes(fileLPCWSTR, attr | FILE_ATTRIBUTE_HIDDEN);
 		}
+	};
 
+	static void Fenter(std::string input) {
+		std::cout << input << std::endl;
+		input += '\n';
+		const char * c = input.c_str();
 
-		FILE * path;
-		path = fopen("Errlog.txt", "a");
-		if (path != NULL) {
-			fputs(c, path);
-			fclose(path);
-		};
+		string s;
+		string sTotal;
+
+		ifstream in;
+		in.open(input);
+
+		while (!in.eof()) {
+				getline(in, s);
+				sTotal += s + "\n";
+
+			}
+
+			cout << sTotal;
+		}
+
 	};
 };
 #endif // !_FILEIO_
