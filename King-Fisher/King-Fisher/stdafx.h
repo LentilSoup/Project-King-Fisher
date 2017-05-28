@@ -19,6 +19,7 @@
 #include <windows.h>
 #include <time.h>
 #include <bitset>
+#include <WinSock2.h>
 
 // TODO: reference additional standard library headers your program requires here
 
