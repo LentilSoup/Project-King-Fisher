@@ -1,5 +1,4 @@
-#include <Connection.h>
-#include <iostream>
+#include "stdafx.h"
 
 using namespace std;
 
@@ -27,7 +26,6 @@ int main() {
 		send(NewConnection, ConnectMessage, sizeof(ConnectMessage), NULL);
 	}
 
-	system("pause");
 
 	return 0;
 }
