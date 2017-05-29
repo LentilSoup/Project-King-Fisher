@@ -1,6 +1,8 @@
 #pragma once
 #include "stdafx.h"
 
+#define _TYPE_LENGTH_  10000000000000
+
 #ifndef _KGFR_ENCRYPTION_
 #define _KGFR_ENCRYPTION_
 
@@ -133,21 +135,21 @@ public:
 		unsigned long decimaltime = std::bitset<64>(binarytime).to_ulong();    //change from binary into decimal
 		unsigned long decimaladdress = std::bitset<64>(binaryaddress).to_ulong(); //change from binary into deciaml
 		
+		roottime = (sqrt(2)*decimaltime)*_TYPE_LENGTH_;
+		rootaddress = (sqrt(2)*decimaladdress)*_TYPE_LENGTH_;
 
 
 
-
-
-		while (isPrime(decimaladdress) != true) {
-			decimaladdress++;
+		while (isPrime(rootaddress) != true) {
+			rootaddress++;
 		}
-		while (isPrime(decimaltime) != true) {
-			decimaltime++;
+		while (isPrime(roottime) != true) {
+			roottime++;
 		}
 
-		publicKey = decimaladdress * decimaltime;
+		publicKey = rootaddress * roottime;
 
-		()
+		
 
 		return publicKey, privateKey;
 	};																	//FUIS encryption ends
@@ -162,8 +164,8 @@ public:
 	};
 protected:
 	long int i = 0;
-	int rootaddress;
-	int roottime;
+	double rootaddress;
+	double roottime;
 	std::string binaryaddress = "";
 };
 

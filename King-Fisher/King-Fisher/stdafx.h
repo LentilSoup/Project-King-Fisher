@@ -5,10 +5,6 @@
 
 #pragma once
 
-#ifndef _WIN32_WINNT
-#define _WIN32_WINNT
-#include "targetver.h"
-#endif
 
 #include <fstream>
 #include <stdio.h>
