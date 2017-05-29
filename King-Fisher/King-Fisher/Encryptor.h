@@ -66,7 +66,7 @@ public:
 			default:  std::cout << "nInvalid hexadecimal digit " << memLoc[i];
 			}
 			i++;
-		}                                              //end of hex to binary
+		}															  //end of hex to binary
 		
 		std::string binarytime = std::bitset<64>(seconds).to_string(); //decimal to binary
 
@@ -76,13 +76,17 @@ public:
 		
 		unsigned long decimaltime = std::bitset<64>(binarytime).to_ulong();    //change from binary into decimal
 		unsigned long decimaladdress = std::bitset<64>(binaryaddress).to_ulong(); //change from binary into deciaml
+		
+	
+		GCDR:
+			if (gcd(decimaladdress, decimaltime) != 1) {
+				decimaladdress++;
+				goto GCDR;
+			}
+			else {
+				std::clog << "Coprimes" << std::endl;
+			}
 
-		if (gcd(decimaladdress, decimaltime) != 1) {
-			decimaladdress++;
-
-
-
-		};
 	};																	//FUIS encryption ends
 
 	void decrypt() {

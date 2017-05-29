@@ -1,4 +1,5 @@
 #include "King-Fisher.h"
+#include "stdafx.h"
 
 using namespace std;
 
