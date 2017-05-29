@@ -21,13 +21,13 @@
     <ClInclude Include="stdafx.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="King-Fisher.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Encryptor.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\targetver.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
