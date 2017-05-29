@@ -5,10 +5,6 @@
 
 #pragma once
 
-#ifndef _WIN32_WINNT
-#define _WIN32_WINNT
-#include "targetver.h"
-#endif
 
 #include <fstream>
 #include <stdio.h>
@@ -17,6 +13,11 @@
 #include <string>
 #include <cstdio>
 #include <windows.h>
+#include <time.h>
+#include <bitset>
+#include <WinSock2.h>
+#include <cmath>
+#include <stdlib.h>
 
 // TODO: reference additional standard library headers your program requires here
 
