@@ -20,6 +20,8 @@
 #include <time.h>
 #include <bitset>
 #include <WinSock2.h>
+#include <cmath>
+#include <stdlib.h>
 
 // TODO: reference additional standard library headers your program requires here
 

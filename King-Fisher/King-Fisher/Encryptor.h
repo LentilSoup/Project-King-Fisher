@@ -6,17 +6,15 @@
 
 class FUISMaths {
 public:
-	unsigned int gcd(unsigned int a, unsigned int b)
-	{
-		unsigned int x;
-		while (b)
-		{
-			x = a % b;
-			a = b;
-			b = x;
+	int gcd(int x, int y) {
+		while (y != 0) {
+			Asteps += 3;
+			int z = x % y;
+			x = y;
+			y = z;
 		}
-		return a;
-	}
+		return x;
+	};
 	int phi(unsigned int n)
 	{
 		unsigned int result = 1;
@@ -26,14 +24,72 @@ public:
 		return result;
 	}
 
+	/**
+	* Fast Modular Exponentiation
+	* Input: factor, power, modulus
+	* Output: factor^power % modulus
+	*/
+	int fastermod(int factor, int power, int modulus) {
+		int result = 1;
+		while (power > 0) {
+			Asteps += 3;
+			if (power % 2 == 1) {
+				result = (result*factor) % modulus;
+				power = power - 1;
+			}
+			power = power / 2;
+			factor = (factor*factor) % modulus;
+		}
+		return result;
+	};
 
+	/**
+	* Fermat Primality Test
+	* Input: a single integer we want to test (inputNum)
+	* Output: TRUE if prime, FALSE if composite
+	* Stolen from some randy ass site
+	*/
+	int isPrime(int inputNum) {
+		// step counter
+		Asteps += 1;
+
+		// run through numTrials
+		for (int trial = 0; trial < numTrials; trial++) {
+			// increment step counter
+			Asteps += 6;
+
+			// generate a between 1 and inputNum - 1
+			int randTest = floor((rand()*(inputNum - 3))) + 2;
+
+			// check if common factor exists
+			if (gcd(randTest, inputNum) != 1) {
+				// factor was found, therefore composite
+				return false;
+			}
+
+			// fermat test
+			if (fastermod(randTest, inputNum - 1, inputNum) != 1) {
+				// must be composite
+				return false;
+			}
+
+		} // end for loop
+
+		return true;
+	};
+protected:
+	int numTrials = 20;
+	int Asteps = 1;
 };
 
 
 
 class FUISEncryption: public FUISMaths {
 public:
-	void encrypt(std::string memLoc) {
+	int encrypt(std::string memLoc) {
+
+		int publicKey;
+		int privateKey;
 
 		time_t seconds;									//FUIS Encryption start
 		seconds = time(NULL);
@@ -77,16 +133,23 @@ public:
 		unsigned long decimaltime = std::bitset<64>(binarytime).to_ulong();    //change from binary into decimal
 		unsigned long decimaladdress = std::bitset<64>(binaryaddress).to_ulong(); //change from binary into deciaml
 		
-	
-		GCDR:
-			if (gcd(decimaladdress, decimaltime) != 1) {
-				decimaladdress++;
-				goto GCDR;
-			}
-			else {
-				std::clog << "Coprimes" << std::endl;
-			}
 
+
+
+
+
+		while (isPrime(decimaladdress) != true) {
+			decimaladdress++;
+		}
+		while (isPrime(decimaltime) != true) {
+			decimaltime++;
+		}
+
+		publicKey = decimaladdress * decimaltime;
+
+		()
+
+		return publicKey, privateKey;
 	};																	//FUIS encryption ends
 
 	void decrypt() {
@@ -99,6 +162,8 @@ public:
 	};
 protected:
 	long int i = 0;
+	int rootaddress;
+	int roottime;
 	std::string binaryaddress = "";
 };
 
