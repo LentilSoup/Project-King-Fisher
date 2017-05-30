@@ -1,4 +1,3 @@
-﻿  stdafx.cpp
-  King-Fisher.cpp
-c:\users\edward\documents\github\project-king-fisher\king-fisher\king-fisher\king-fisher.cpp(7): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-c:\users\edward\documents\github\project-king-fisher\king-fisher\king-fisher\king-fisher.cpp(7): error C2146: syntax error: missing ';' before identifier 'startGenerate'
+﻿  King-Fisher.cpp
+  King-Fisher.vcxproj -> C:\Users\edward\Documents\GitHub\Project-King-Fisher\King-Fisher\x64\Debug\King-Fisher.exe
+  King-Fisher.vcxproj -> C:\Users\edward\Documents\GitHub\Project-King-Fisher\King-Fisher\x64\Debug\King-Fisher.pdb (Partial PDB)

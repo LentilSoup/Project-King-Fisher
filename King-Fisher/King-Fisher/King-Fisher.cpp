@@ -3,10 +3,10 @@
 
 using namespace std;
 
-string FilePath;
-FUISEncryption startGenerate;
 
 int main() {
+
+	string FilePath;
 	cout << "Software Start" << endl;
 	cout << "King Fisher Connection Software" << endl;
 	cout << "Select a file to begin Editing" << endl;

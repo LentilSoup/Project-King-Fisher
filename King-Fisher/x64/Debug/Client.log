@@ -1,6 +1,2 @@
-﻿C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\VC\VCTargets\Microsoft.CppClean.targets(76,5): warning : Access to the path 'c:\users\edward\documents\github\project-king-fisher\king-fisher\x64\debug\client.exe' is denied.
-  stdafx.cpp
-  Client.cpp
-c:\users\edward\documents\github\project-king-fisher\king-fisher\client\client.cpp(45): warning C4996: 'inet_addr': Use inet_pton() or InetPton() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings
-  c:\program files (x86)\windows kits\10\include\10.0.14393.0\um\winsock2.h(1828): note: see declaration of 'inet_addr'
-LINK : fatal error LNK1104: cannot open file 'C:\Users\edward\Documents\GitHub\Project-King-Fisher\King-Fisher\x64\Debug\Client.exe'
+﻿  Client.cpp
+c:\users\edward\documents\github\project-king-fisher\king-fisher\client\client.cpp(46): error C2660: 'inet_pton': function does not take 1 arguments
