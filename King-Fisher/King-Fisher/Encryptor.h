@@ -138,14 +138,23 @@ public:
 		roottime = (sqrt(2)*decimaltime)*_TYPE_LENGTH_;
 		rootaddress = (sqrt(2)*decimaladdress)*_TYPE_LENGTH_;
 
-
-
 		while (isPrime(rootaddress) != true) {
 			rootaddress++;
+			if (repeatStopAddress == rootaddress) {
+				rootaddress++;
+			}
 		}
 		while (isPrime(roottime) != true) {
 			roottime++;
+			if (repeatStopTime == roottime) {
+				roottime++;
+			}
 		}
+
+
+		repeatStopTime = roottime;
+		repeatStopAddress = rootaddress;
+
 
 		publicKey = rootaddress * roottime;
 
@@ -166,6 +175,8 @@ protected:
 	long int i = 0;
 	double rootaddress;
 	double roottime;
+	double repeatStopTime;
+	double repeatStopAddress;
 	std::string binaryaddress = "";
 };
 
