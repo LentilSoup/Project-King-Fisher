@@ -8,11 +8,13 @@
 #define _FILEIO_
 // required standard libary files are: iostream, string, fstream and cstdio
 
+using namespace std;
+
 class FILEIO {
 public:
 	FILEIO() {
-		std::string filename = "copytarget.KgFr";
-		std::ofstream outfile(filename.c_str());
+		string filename = "copytarget.KgFr";
+		ofstream outfile(filename.c_str());
 
 		wchar_t* fileLPCWSTR = L"copytarget.KgFr"; // To avoid incompatibility in GetFileAttributes()
 
@@ -22,8 +24,8 @@ public:
 		}
 	};
 
-	static void Fenter(std::string input) {
-		std::cout << input << std::endl;
+	static void Fenter(string input) {
+		cout << input << endl;
 		input += '\n';
 		const char * c = input.c_str();
 
@@ -36,12 +38,9 @@ public:
 		while (!in.eof()) {
 				getline(in, s);
 				sTotal += s + "\n";
-
-			}
-
-			cout << sTotal;
-		}
-
+		};
+		cout << sTotal;
 	};
 };
+
 #endif // !_FILEIO_

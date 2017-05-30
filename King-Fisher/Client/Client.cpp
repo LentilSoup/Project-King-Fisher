@@ -1,35 +1,22 @@
 //Client
 
 #include "stdafx.h"
-#define MAXRCVLEN 512
 
 using namespace std;
 
 WSAData wsaData;
 struct addrinfo *result = NULL, *ptr = NULL, hints;
 struct sockaddr_in Destination;
-int LengthOfMessageFromServer, ClientSocket;
-char Buffer[MAXRCVLEN + 1];
-
-
-int receiveall(int s, char *buf, int *len) {
-	int total = 0;
-	int bytesleft = *len;
-	int n = -1;
-
-	while (total < *len) {
-		n = recv(s, buf + total, bytesleft, 0);
-		if (n <= 0) { break; }
-		total += n;
-		bytesleft -= n;
-	}
-	*len = total;
-
-	return (n <= 0) ? -1 : 0;
-};
+int LengthOfMessageFromServer;
+int ClientSocket;
 
 
 int main() {
+
+	int MAXRCV = 512;
+	char *Buffer;
+	Buffer = (char*)malloc((MAXRCV + 1) * sizeof(char));
+
 	int StartupResult = WSAStartup(MAKEWORD(2, 2), &wsaData);
 	if (StartupResult != 0) {
 		cout << ("WSAStartup failed with error %d\n", WSAGetLastError()) << endl;
@@ -61,7 +48,7 @@ int main() {
 	connect(ClientSocket, (struct sockaddr *)&Destination, sizeof(struct sockaddr));
 
 	while (ClientSocket != INVALID_SOCKET) {
-		LengthOfMessageFromServer = receiveall(ClientSocket, Buffer, MAXRCVLEN);
+		LengthOfMessageFromServer = recv(ClientSocket, Buffer, MAXRCV, 0);
 		printf("Received message: %s (%d Bytes)\n", Buffer, LengthOfMessageFromServer);
 	};
 

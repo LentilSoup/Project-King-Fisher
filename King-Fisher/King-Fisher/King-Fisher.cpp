@@ -4,12 +4,14 @@
 using namespace std;
 
 FILEIO create;
+string FilePath;
+
 
 int main() {
 	cout << "Software Start" << endl;
 	cout << "King Fisher Connection Software" << endl;
 	cout << "Select a file to begin Editing" << endl;
-	cout << "Enter the exact File Path\n" << endl;
+	cout << "Enter the exact File Path: " << endl, cin >> FilePath;
 
 	
 	return 0;
