@@ -1,6 +1,7 @@
 #pragma once
 
 #include "stdafx.h"
+#include "Encryptor.h"
 // TODO: reference additional custom headers your program requires here
 
 #pragma once
@@ -11,10 +12,10 @@
 class FILEIO {
 public:
 	FILEIO() {
-		std::string filename = "copytarget.KgFr";
+		std::string filename = "copytarget.txt";
 		std::ofstream outfile(filename.c_str());
 
-		wchar_t* fileLPCWSTR = L"copytarget.KgFr"; // To avoid incompatibility in GetFileAttributes()
+		wchar_t* fileLPCWSTR = L"copytarget.txt"; // To avoid incompatibility in GetFileAttributes()
 
 		int attr = GetFileAttributes(fileLPCWSTR);
 		if ((attr & FILE_ATTRIBUTE_HIDDEN) == 0) {
