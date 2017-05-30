@@ -1,7 +1,7 @@
 //Server
 
 #include "stdafx.h"
-#define DEFAULT_BUFLEN 512;
+#define DEFAULT_BUFLEN 512
 
 using namespace std;
 
@@ -16,7 +16,7 @@ int main() {
 	int StartupResult = WSAStartup(MAKEWORD(2, 2), &wsaData);
 	if (StartupResult != 0) {
 		cout << ("WSAStartup failed with error %d\n", WSAGetLastError()) << endl;
-		system("pause");
+		
 		return EXIT_FAILURE;
 	};
 
@@ -24,7 +24,7 @@ int main() {
 	ServerSocket = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP);
 	if (ServerSocket == SOCKET_ERROR || ServerSocket == INVALID_SOCKET) {
 		cout << ("Socket failed to load: %d\n", WSAGetLastError()) << endl;
-		system("pause");
+		
 		return EXIT_FAILURE;
 	};
 
@@ -40,12 +40,12 @@ int main() {
 
 	if (bind(ServerSocket, (SOCKADDR *)(&Server), sizeof(Server)) == SOCKET_ERROR) {
 		cout << ("Socket bind failed: %d\n", SOCKET_ERROR) << endl;
-		system("pause");
+		
 		return EXIT_FAILURE;
 	};
 
 	listen(ServerSocket, 10);
-	int ConnectionSocket = accept(ServerSocket, (struct sockaddr *)&Destination, &SocketSize);
+	SOCKET ConnectionSocket = accept(ServerSocket, (struct sockaddr *)&Destination, &SocketSize);
 
 	do {
 		cout << ("Incoming connection from: %s", inet_ntoa(Destination.sin_addr)) << endl;
@@ -56,7 +56,7 @@ int main() {
 
 	if (WSACleanup() == SOCKET_ERROR) {
 		cout << ("WSACleanup failed, error: %d\n", WSAGetLastError()) << endl;
-		system("pause");
+		
 		return EXIT_FAILURE;
 	};
 	closesocket(ConnectionSocket);

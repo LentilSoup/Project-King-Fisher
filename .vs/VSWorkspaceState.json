@@ -2,9 +2,11 @@
   "ExpandedNodes": [
     "",
     "\\King-Fisher",
+    "\\King-Fisher\\Client",
     "\\King-Fisher\\King-Fisher",
+    "\\King-Fisher\\Server",
     "\\x64"
   ],
-  "SelectedNode": "\\King-Fisher\\King-Fisher.sln",
+  "SelectedNode": "\\King-Fisher\\Server\\Server.cpp",
   "PreviewInSolutionExplorer": false
 }

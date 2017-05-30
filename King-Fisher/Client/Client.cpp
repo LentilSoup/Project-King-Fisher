@@ -1,6 +1,7 @@
 //Client
 
 #include "stdafx.h"
+#define _WINSOCK_DEPRECATED_NO_WARNINGS
 
 using namespace std;
 
@@ -20,7 +21,7 @@ int main() {
 	int StartupResult = WSAStartup(MAKEWORD(2, 2), &wsaData);
 	if (StartupResult != 0) {
 		cout << ("WSAStartup failed with error %d\n", WSAGetLastError()) << endl;
-		system("pause");
+		
 		return EXIT_FAILURE;
 	};
 
@@ -28,7 +29,7 @@ int main() {
 	ClientSocket = socket(AF_INET, SOCK_STREAM, 0);
 	if (ClientSocket == SOCKET_ERROR || ClientSocket == INVALID_SOCKET) {
 		cout << ("Socket failed to load: %d\n", WSAGetLastError()) << endl;
-		system("pause");
+		
 		return EXIT_FAILURE;
 	};
 
@@ -42,7 +43,7 @@ int main() {
 
 	memset(&Destination, 0, sizeof(Destination));
 	Destination.sin_family = AF_INET;
-	Destination.sin_addr.s_addr = inet_addr(Address);
+	Destination.sin_addr.s_addr = inet_pton(Address);
 	Destination.sin_port = htons(Port);
 
 	connect(ClientSocket, (struct sockaddr *)&Destination, sizeof(struct sockaddr));
@@ -54,7 +55,7 @@ int main() {
 
 	if (WSACleanup() == SOCKET_ERROR) {
 		cout << ("WSACleanup failed, error: %d\n", WSAGetLastError()) << endl;
-		system("pause");
+		
 		return EXIT_FAILURE;
 	};
 
