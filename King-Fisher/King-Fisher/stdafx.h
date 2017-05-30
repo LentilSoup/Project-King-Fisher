@@ -4,7 +4,9 @@
 //
 
 #pragma once
+#pragma comment(lib, "Ws2_32.lib")
 
+#define WIN32_LEAN_AND_MEAN
 
 #include <fstream>
 #include <stdio.h>
@@ -15,7 +17,7 @@
 #include <windows.h>
 #include <time.h>
 #include <bitset>
-#include <WinSock2.h>
+#include <winsock2.h>
 #include <cmath>
 #include <stdlib.h>
 
