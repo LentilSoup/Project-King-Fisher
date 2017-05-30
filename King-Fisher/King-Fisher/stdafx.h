@@ -23,6 +23,7 @@
 
 // TODO: reference additional standard library headers your program requires here
 
+#define _TYPE_LENGTH_ 100000000
 
 #ifndef __STDAFX__
 #define __STDAFX__
