@@ -36,7 +36,6 @@ public:
 		while (!in.eof()) {
 				getline(in, s);
 				sTotal += s + "\n";
-
 			}
 
 			cout << sTotal;

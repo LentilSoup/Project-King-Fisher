@@ -1,7 +1,6 @@
 #pragma once
 #include "stdafx.h"
 
-#define _TYPE_LENGTH_  10000000000000
 
 #ifndef _KGFR_ENCRYPTION_
 #define _KGFR_ENCRYPTION_
@@ -128,7 +127,6 @@ public:
 		
 		std::string binarytime = std::bitset<64>(seconds).to_string(); //decimal to binary
 
-
 		binarytime += "1";
 		binaryaddress += "0";
 		
@@ -147,6 +145,8 @@ public:
 		while (isPrime(roottime) != true) {
 			roottime++;
 			if (repeatStopTime == roottime) {
+				roottime++;
+			}if (roottime == rootaddress) {
 				roottime++;
 			}
 		}
