@@ -102,7 +102,7 @@ protected:
 
 class FUISEncryption: public FUISMaths {
 public:
-	int e = 17;
+	int e = 186161;
 
 	int generateKeyPair(std::string memLoc) {
 
