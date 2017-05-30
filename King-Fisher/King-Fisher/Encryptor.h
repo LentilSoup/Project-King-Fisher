@@ -1,7 +1,6 @@
 #pragma once
 #include "stdafx.h"
 
-#define _TYPE_LENGTH_  10000000000000
 
 #ifndef _KGFR_ENCRYPTION_
 #define _KGFR_ENCRYPTION_
@@ -79,6 +78,21 @@ public:
 
 		return true;
 	};
+
+	int lcm(int a, int b) {
+		int temp = gcd(a, b);
+
+		return temp ? (a / temp * b) : 0;
+	}
+
+	// A naive method to find modulor multiplicative inverse of
+	// 'a' under modulo 'm'
+	int modInverse(int a, int m) {
+		a = a%m;
+		for (int x = 1; x<m; x++)
+			if ((a*x) % m == 1)
+				return x;
+	}
 protected:
 	int numTrials = 20;
 	int Asteps = 1;
@@ -88,10 +102,11 @@ protected:
 
 class FUISEncryption: public FUISMaths {
 public:
-	int encrypt(std::string memLoc) {
+	int e = 17;
+
+	int generateKeyPair(std::string memLoc) {
 
 		int publicKey;
-		int privateKey;
 
 		time_t seconds;									//FUIS Encryption start
 		seconds = time(NULL);
@@ -128,7 +143,6 @@ public:
 		
 		std::string binarytime = std::bitset<64>(seconds).to_string(); //decimal to binary
 
-
 		binarytime += "1";
 		binaryaddress += "0";
 		
@@ -138,22 +152,40 @@ public:
 		roottime = (sqrt(2)*decimaltime)*_TYPE_LENGTH_;
 		rootaddress = (sqrt(2)*decimaladdress)*_TYPE_LENGTH_;
 
-
-
 		while (isPrime(rootaddress) != true) {
 			rootaddress++;
+			if (repeatStopAddress == rootaddress) {
+				rootaddress++;
+			}
 		}
 		while (isPrime(roottime) != true) {
 			roottime++;
+			if (repeatStopTime == roottime) {
+				roottime++;
+			}if (roottime == rootaddress) {
+				roottime++;
+			}
 		}
+
+
+		repeatStopTime = roottime;
+		repeatStopAddress = rootaddress;
 
 		publicKey = rootaddress * roottime;
 
-		
 
-		return publicKey, privateKey;
+		int d = modInverse(e,lcm(roottime-1,rootaddress-1));
+
+
+		return publicKey;
 	};																	//FUIS encryption ends
+	int encrypt() {
 
+
+
+
+
+	}
 	void decrypt() {
 
 
@@ -166,6 +198,8 @@ protected:
 	long int i = 0;
 	double rootaddress;
 	double roottime;
+	double repeatStopTime;
+	double repeatStopAddress;
 	std::string binaryaddress = "";
 };
 
