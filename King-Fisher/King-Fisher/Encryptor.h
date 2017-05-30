@@ -78,6 +78,21 @@ public:
 
 		return true;
 	};
+
+	int lcm(int a, int b) {
+		int temp = gcd(a, b);
+
+		return temp ? (a / temp * b) : 0;
+	}
+
+	// A naive method to find modulor multiplicative inverse of
+	// 'a' under modulo 'm'
+	int modInverse(int a, int m) {
+		a = a%m;
+		for (int x = 1; x<m; x++)
+			if ((a*x) % m == 1)
+				return x;
+	}
 protected:
 	int numTrials = 20;
 	int Asteps = 1;
@@ -87,10 +102,11 @@ protected:
 
 class FUISEncryption: public FUISMaths {
 public:
-	int encrypt(std::string memLoc) {
+	int e = 17;
+
+	int generateKeyPair(std::string memLoc) {
 
 		int publicKey;
-		int privateKey;
 
 		time_t seconds;									//FUIS Encryption start
 		seconds = time(NULL);
@@ -155,14 +171,21 @@ public:
 		repeatStopTime = roottime;
 		repeatStopAddress = rootaddress;
 
-
 		publicKey = rootaddress * roottime;
 
-		
 
-		return publicKey, privateKey;
+		int d = modInverse(e,lcm(roottime-1,rootaddress-1));
+
+
+		return publicKey;
 	};																	//FUIS encryption ends
+	int encrypt() {
 
+
+
+
+
+	}
 	void decrypt() {
 
 
